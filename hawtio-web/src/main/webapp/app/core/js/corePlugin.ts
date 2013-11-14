@@ -7,7 +7,7 @@
 /// <reference path='gridStyleDirective.ts'/>
 /// <reference path='folder.ts'/>
 /// <reference path='helpers.ts'/>
-/// <reference path='../../jmx/js/helpers.ts'/>
+/// <reference path='../../jmx/js/jmxPlugin.ts'/>
 
 
 // Add any other known possible jolokia URLs here

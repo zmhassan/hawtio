@@ -2,21 +2,6 @@
 
 module Jmx {
 
-    /*
-    export interface IArg {
-        name : string;
-        type : string;
-    }
-
-    export interface IOperationControllerScope extends IMyAppScope {
-        item : IOperation;
-        title : string;
-        desc : string;
-        args : IArg[];
-
-        execute : (args : IArg[]) => void;
-    } */
-
     // IOperationControllerScope
     export function OperationController($scope, workspace:Workspace, jolokia, $document) {
       $scope.title = $scope.item.humanReadable;
