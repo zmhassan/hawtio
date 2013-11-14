@@ -1,2 +1,15 @@
 hawtio-config
 mavenIndexer
+*.js
+!GruntFile.js
+!src/main/webapp/lib/*
+!src/main/lib.disabled/*
+
+!src/main/webapp/test.js
+!src/main/webapp/app/forms/js/jsonschema.js
+!src/main/webapp/app/camel/js/camelModel.js
+!src/main/webapp/app/core/js/hawtio-plugin-loader.js
+!src/main/webapp/app/core/js/loggingInit.js
+!src/main/webapp/app/core/js/mvGraphs.js
+
+
