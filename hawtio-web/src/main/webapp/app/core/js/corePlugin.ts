@@ -1,3 +1,14 @@
+/// <reference path='../../../d.ts/libraries.d.ts'/>
+/// <reference path='pageTitle.ts'/>
+/// <reference path='workspace.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='CodeEditor.ts'/>
+/// <reference path='helpRegistry.ts'/>
+/// <reference path='gridStyleDirective.ts'/>
+/// <reference path='folder.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='../../jmx/js/helpers.ts'/>
+
 
 // Add any other known possible jolokia URLs here
 var jolokiaUrls = [
@@ -37,6 +48,7 @@ if (jolokiaUrl) {
   //hawtioPluginLoader.addUrl("jolokia:" + jolokiaUrl + ":hawtio:type=plugin,name=*");
 }
 
+/*
 interface IMyAppScope extends ng.IRootScopeService, ng.IScope {
   lineCount: (value:any) => number;
   params: ng.IRouteParamsService;
@@ -45,6 +57,7 @@ interface IMyAppScope extends ng.IRootScopeService, ng.IScope {
   log: (variable:string) => void;
   alert: (text:string) => void;
 }
+*/
 
 hawtioPluginLoader.addModule('hawtioCore');
 
@@ -264,7 +277,8 @@ angular.module('hawtioCore', ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.dia
         }).
 
         factory('toastr', ($window) => {
-          return $window.toastr;
+          // TODO remove this <any>
+          return (<any>window).toastr;
         }).
         factory('xml2json', ($window) => {
           var jquery:any = $;

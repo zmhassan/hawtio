@@ -1,3 +1,5 @@
+/// <reference path='corePlugin.ts'/>
+
 module Core {
 
   export function ConsoleController($scope, $element, $templateCache) {

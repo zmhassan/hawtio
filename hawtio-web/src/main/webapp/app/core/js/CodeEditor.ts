@@ -1,3 +1,6 @@
+/// <reference path='../../../d.ts/libraries.d.ts'/>
+/// <reference path='workspace.ts'/>
+
 module CodeEditor {
   // TODO Wire up to a global config manager service
   export var GlobalCodeMirrorOptions = {

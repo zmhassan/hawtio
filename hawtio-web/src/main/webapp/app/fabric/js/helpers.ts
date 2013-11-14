@@ -1,3 +1,5 @@
+/// <reference path='fabricPlugin.ts'/>
+
 module Fabric {
 
   export var log:Logging.Logger = Logger.get("Fabric");

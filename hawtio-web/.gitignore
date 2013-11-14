@@ -1,6 +1,8 @@
 hawtio-config
 mavenIndexer
 *.js
+*.js.map
+
 !GruntFile.js
 !src/main/webapp/lib/*
 !src/main/lib.disabled/*

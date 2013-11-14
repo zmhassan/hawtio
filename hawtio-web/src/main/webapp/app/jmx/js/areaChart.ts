@@ -1,3 +1,5 @@
+/// <reference path='../../core/js/helpers.ts'/>
+
 module Jmx {
 
   export function AreaChartController($scope, $routeParams, jolokia, $templateCache, localStorage, $element) {

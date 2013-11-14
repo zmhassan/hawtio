@@ -1,3 +1,5 @@
+/// <reference path='corePlugin.ts'/>
+
 interface MenuItem {
   content: string;
   title?: string;
@@ -204,7 +206,7 @@ class Workspace {
           folder.folderNames = folderNames;
           folderNames = folderNames.clone();
           var items = path.split(',');
-          var paths = [];
+          var paths:string[] = [];
           var typeName = null;
           var serviceName = null;
           items.forEach(item => {
@@ -268,8 +270,8 @@ class Workspace {
           };
 
           var lastPath = paths.pop();
-          var ws = this
-          paths.each((value) => {
+          var ws = this;
+          paths.forEach((value:string) => {
             folder = ws.folderGetOrElse(folder, value);
             if (folder) {
               folderNames.push(value);

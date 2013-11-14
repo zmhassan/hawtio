@@ -1,3 +1,5 @@
+///<reference path='corePlugin.ts'/>
+
 var logQueryMBean = 'org.fusesource.insight:type=LogQuery';
 
 var _urlPrefix: string = null;
@@ -636,6 +638,35 @@ module Core {
     }
     return null;
   }
+
+  export function parseBooleanValue(value):boolean {
+    if (!angular.isDefined(value)) {
+      return false;
+    }
+
+    if (value.constructor === Boolean) {
+      return <boolean>value;
+    }
+
+    if (angular.isString(value)) {
+      switch(value.toLowerCase()) {
+        case "true":
+        case "1":
+        case "yes":
+          return true;
+        default:
+          return false;
+      }
+    }
+
+    if (angular.isNumber(value)) {
+      return value !== 0;
+    }
+
+    throw new Error("Can't convert value " + value + " to boolean");
+
+  }
+
 
   /**
    * Look up a list of child element names or lazily create them.

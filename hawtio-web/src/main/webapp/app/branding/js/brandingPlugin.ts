@@ -1,9 +1,10 @@
-module Core {
+/// <reference path='../../../d.ts/libraries.d.ts'/>
 
-  /**
-   * Ensure whatever value is passed in is converted to a boolean
-   * Added here because it's needed for the below stuff...
-   */
+module Branding {
+
+  // TODO this is duplicated in core but we need this function
+  // available as we check the branding before the app is even
+  // bootstrapped
   export function parseBooleanValue(value):boolean {
     if (!angular.isDefined(value)) {
       return false;
@@ -32,10 +33,6 @@ module Core {
 
   }
 
-}
-
-module Branding {
-
   export var enabled = false;
   export var profile = null;
 
@@ -45,7 +42,7 @@ module Branding {
   $.ajaxSetup({async:true});
   $.get('/hawtio/branding', (response) => {
 
-    Branding.enabled = Core.parseBooleanValue(response.enable);
+    Branding.enabled = Branding.parseBooleanValue(response.enable);
 
     // Branding.enabled = false;
     // Branding.enabled = true;

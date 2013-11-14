@@ -24,7 +24,7 @@ module.exports = function (grunt) {
     grunt.file.delete(file, { force: true });
   });
 
-  var appFiles = ['src/main/d.ts/*.ts', 'src/main/webapp/app/**/*.ts'];
+  var appFiles = ['src/main/webapp/d.ts/*.ts', 'src/main/webapp/app/**/*.ts'];
 
   grunt.initConfig({
     test:{

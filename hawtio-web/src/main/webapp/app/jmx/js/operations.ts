@@ -1,3 +1,5 @@
+/// <reference path='jmxPlugin.ts'/>
+
 module Jmx {
 
     /*
@@ -126,7 +128,7 @@ module Jmx {
     }
 
 
-    export function OperationsController($scope, $routeParams : ng.IRouteParamsService, workspace:Workspace, jolokia) {
+    export function OperationsController($scope, $routeParams, workspace:Workspace, jolokia) {
 
       $scope.operations = {};
 

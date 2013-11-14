@@ -1,3 +1,6 @@
+/// <reference path="fabricPlugin.ts"/>
+/// <reference path="helpers.ts"/>
+
 module Fabric {
 
   export class ContainerList {
@@ -263,7 +266,7 @@ module Fabric {
               var profile = answer.find({id: id});
 
               function requireStyle() {
-                return Fabric.containerCountBadgeStyle(min, (profile ? profile.count : 0));
+                return Fabric.containerCountBadgeStyle(min, (profile ? profile['count'] : 0));
               }
 
               if (profile) {

@@ -1,3 +1,24 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='autoColumns.ts'/>
+/// <reference path='autoDropDown.ts'/>
+/// <reference path='colorPickerDirective.ts'/>
+/// <reference path='confirmDialogDirective.ts'/>
+/// <reference path='editablePropertyDirective.ts'/>
+/// <reference path='editorDirective.ts'/>
+/// <reference path='expandableDirective.ts'/>
+/// <reference path='fileUpload.ts'/>
+/// <reference path='gridster.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='jsPlumbDirective.ts'/>
+/// <reference path='panels.ts'/>
+/// <reference path='row.ts'/>
+/// <reference path='slideoutDirective.ts'/>
+/// <reference path='tablePager.ts'/>
+/// <reference path='templatePopover.ts'/>
+/// <reference path='viewport.ts'/>
+/// <reference path='zeroclipboard.ts'/>
+
 module UI {
 
   export var pluginName = 'hawtio-ui';

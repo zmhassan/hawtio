@@ -1,3 +1,10 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='../../git/js/helpers.ts'/>
+/// <reference path='../../wiki/js/wikiPlugin.ts'/>
+/// <reference path='versionSelectorDirective.ts'/>
+/// <reference path='helpers.ts'/>
+
+
 module Fabric {
 
   export var jmxDomain = 'org.fusesource.fabric';

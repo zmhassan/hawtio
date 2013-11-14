@@ -1,3 +1,5 @@
+/// <reference path='uiPlugin.ts'/>
+
 module UI {
 
   export var fileUploadMBean = "io.hawt.jmx:type=UploadManager";
@@ -129,7 +131,7 @@ module UI {
         return false;
       });
 
-      if ($.browser.msie) {
+      if ((<any>$).browser.msie) {
         fileInput.click((event) => {
           setTimeout(() => {
             if (fileInput.val().length > 0) {

@@ -1,3 +1,8 @@
+/// <reference path='../../../d.ts/libraries.d.ts'/>
+/// <reference path='../../core/js/folder.ts'/>
+/// <reference path='../../core/js/helpers.ts'/>
+/// <reference path='../../core/js/workspace.ts'/>
+
 module Jmx {
 
   export var log:Logging.Logger = Logger.get("JMX");
