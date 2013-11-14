@@ -1,4 +1,4 @@
-
+/// <reference path='sourcePlugin.ts'/>
 module Source {
 
   export function IndexController($scope, $location, $routeParams, workspace:Workspace, jolokia) {

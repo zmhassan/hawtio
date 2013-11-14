@@ -1,3 +1,4 @@
+/// <reference path='sourcePlugin.ts'/>
 module Source {
 
   export var log:Logging.Logger = Logger.get("Source");

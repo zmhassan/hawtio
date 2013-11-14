@@ -1,7 +1,40 @@
-#!/bin/sh
-echo "Compiling the typescript code in a watch loop so we recompile on source changes"
-echo
+#!/bin/bash
+#echo "Compiling the typescript code in a watch loop so we recompile on source changes"
+#echo
 #
 # TODO does not seem to like the --sourcemap command line option here! :(
 #
-tsc --watch --out src/main/webapp/js/app.js src/main/d.ts/* src/main/webapp/app/*/js/*.ts
+#tsc --watch --out src/main/webapp/js/app.js src/main/d.ts/* src/main/webapp/app/*/js/*.ts
+
+on_die()
+{
+	# print message
+	#
+	echo "Dying..."
+  keepRunning = 0;
+
+	# Need to exit the script explicitly when done.
+	# Otherwise the script would live on, until system
+	# realy goes down, and KILL signals are send.
+	#
+	exit 0
+}
+
+
+# Execute function on_die() receiving TERM signal
+#
+trap 'on_die' TERM
+
+keepRunning=1;
+
+tsFiles=$(find . -type f -name *.ts | grep -v [.]d[.]ts | grep -v test | grep -v target)
+
+for each in $tsFiles
+do  
+  echo "Compiling $each"
+  tsc --sourcemap --target es5 "$each"
+  if [ $keepRunning -a $? -ne 0 ]
+  then
+    exit 0
+  fi
+done

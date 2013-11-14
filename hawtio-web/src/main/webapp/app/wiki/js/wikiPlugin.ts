@@ -1,3 +1,8 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='../../git/js/helpers.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='wikiRepository.ts'/>
+
 module Wiki {
 
   var pluginName = 'wiki';

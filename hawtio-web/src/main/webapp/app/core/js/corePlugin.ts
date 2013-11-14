@@ -7,6 +7,7 @@
 /// <reference path='gridStyleDirective.ts'/>
 /// <reference path='folder.ts'/>
 /// <reference path='helpers.ts'/>
+/// <reference path='dialog.ts'/>
 /// <reference path='../../jmx/js/jmxPlugin.ts'/>
 
 

@@ -1,3 +1,4 @@
+/// <reference path='sourcePlugin.ts'/>
 module Source {
 
   export function JavaDocController($scope, $location, $routeParams, workspace:Workspace, fileExtensionTypeRegistry, jolokia) {

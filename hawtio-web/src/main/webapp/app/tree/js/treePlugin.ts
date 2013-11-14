@@ -1,3 +1,5 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+
 module Tree {
   var pluginName = 'tree';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'hawtioCore']).

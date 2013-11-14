@@ -1,3 +1,7 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='../../wiki/js/wikiPlugin.ts'/>
+/// <reference path='helpers.ts'/>
+
 module Source {
   var pluginName = 'source';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'hawtioCore', 'wiki']).
