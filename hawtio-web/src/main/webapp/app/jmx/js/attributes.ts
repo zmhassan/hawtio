@@ -1,12 +1,11 @@
 /// <reference path='../../definitions/DefinitelyTyped/angularjs/angular.d.ts'/>
 /// <reference path='../../definitions/sugar-1.3.d.ts'/>
 /// <reference path='../../definitions/logger.d.ts'/>
-/// <reference path='helpers.ts'/>
+/// <reference path='jmxHelpers.ts'/>
 /// <reference path='../../core/js/workspace.ts'/>
 /// <reference path='../../core/js/coreHelpers.ts'/>
 /// <reference path='../../core/js/dialog.ts'/>
 /// <reference path='widgetRepository.ts'/>
-/// <reference path='jmxPlugin.ts'/>
 
 module Jmx {
 

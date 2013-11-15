@@ -1,5 +1,10 @@
-/// <reference path='../../definitions/libraries.d.ts'/>
-/// <reference path='workspace.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/angularjs/angular.d.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/jquery/jquery.d.ts'/>
+/// <reference path='../../definitions/jolokia-1.0.d.ts'/>
+/// <reference path='../../definitions/logger.d.ts'/>
+/// <reference path='../../definitions/sugar-1.3.d.ts'/>
+/// <reference path='coreHelpers.ts'/>
+/// <reference path='folder.ts'/>
 
 module CodeEditor {
   // TODO Wire up to a global config manager service

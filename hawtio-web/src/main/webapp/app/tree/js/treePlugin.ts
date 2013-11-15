@@ -1,3 +1,5 @@
+/// <reference path='../../definitions/jquery.dynatree-1.2.d.ts'/>
+
 /// <reference path='../../core/js/coreHelpers.ts'/>
 
 module Tree {

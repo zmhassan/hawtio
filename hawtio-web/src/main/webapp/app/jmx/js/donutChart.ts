@@ -1,4 +1,12 @@
-/// <reference path='jmxPlugin.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/angularjs/angular.d.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/jquery/jquery.d.ts'/>
+/// <reference path='../../definitions/jolokia-1.0.d.ts'/>
+/// <reference path='../../definitions/logger.d.ts'/>
+/// <reference path='../../definitions/sugar-1.3.d.ts'/>
+/// <reference path='../../core/js/workspace.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
+/// <reference path='jmxHelpers.ts'/>
+
 module Jmx {
 
   export function DonutChartController($scope, $routeParams, jolokia, $templateCache) {
