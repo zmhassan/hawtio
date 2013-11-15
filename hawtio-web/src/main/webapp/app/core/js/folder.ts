@@ -16,12 +16,12 @@ interface NodeSelection {
   folderNames?: string[];
   children?:NodeSelection[];
   parent?: NodeSelection;
-  isFolder?: () => bool;
+  isFolder?: () => boolean;
 
   get(key:string): NodeSelection;
 
-  ancestorHasType(typeName:string): bool;
-  ancestorHasEntry(key:string, value): bool;
+  ancestorHasType(typeName:string): boolean;
+  ancestorHasEntry(key:string, value): boolean;
 }
 
 
@@ -40,7 +40,7 @@ class Folder implements NodeSelection {
   entries = {};
   addClass = null;
   parent: Folder = null;
-  isLazy: bool = false;
+  isLazy: boolean = false;
   icon: string = null;
   tooltip: string = null;
   entity: any = null;
@@ -113,7 +113,7 @@ class Folder implements NodeSelection {
     return answer;
   }
 
-  public sortChildren(recursive: bool) {
+  public sortChildren(recursive: boolean)  {
     var children = this.children;
     if (children) {
       this.children = children.sortBy("title");

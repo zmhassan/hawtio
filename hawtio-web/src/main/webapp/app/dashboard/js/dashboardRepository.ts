@@ -100,7 +100,7 @@ module Dashboard {
 
     getType:() => string;
 
-    isValid: () => bool;
+    isValid: () => boolean;
 
   }
 

@@ -192,7 +192,7 @@ function supportsLocalStorage() {
 }
 
 
-function isNumberTypeName(typeName):bool {
+function isNumberTypeName(typeName):boolean {
   if (typeName) {
     var text = typeName.toString().toLowerCase();
     var flag = numberTypeNames[text];
@@ -1052,7 +1052,7 @@ module Core {
     var D = document;
     return Math.max(
         Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
-        Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+        Math.max(D.body.offsetHeight, (<any>D.documentElement).offsetHeight),
         Math.max(D.body.clientHeight, D.documentElement.clientHeight)
     );
   }
