@@ -469,23 +469,10 @@
             <contextPath>${context}</contextPath>
                 <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
                   <resourcesAsCSV>${basedir}/src/main/webapp,${project.build.directory}/${project.name}-${project.version}</resourcesAsCSV>
-                </baseResource><!--
-            <resources>${basedir}/src/main/webapp,${project.build.directory}/${project.name}-${project.version}</resources>
--->
-<!--
-            <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-              <resources>${basedir}/src/main/webapp,${project.build.directory}/${project.name}-${project.version}
-              </resources>
-            </baseResource>
--->
+                </baseResource>
           </webAppConfig>
           <scanIntervalSeconds>0</scanIntervalSeconds>
           <useTestScope>true</useTestScope>
-<!--
-          <webAppConfig>
-            <contextPath>${context}</contextPath>
-          </webAppConfig>
--->
           <connectors>
             <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
               <port>${jettyPort}</port>
@@ -557,61 +544,84 @@
         <version>1.1.1</version>
         <executions>
           <execution>
+            <id>generate-files</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <phase>test-compile</phase>
+            <configuration>
+              <mainClass>io.hawt.web.tool.GenerateDevFiles</mainClass>
+              <classpathScope>test</classpathScope>
+              <systemProperties>
+                <systemProperty>
+                  <key>basedir</key>
+                  <value>${basedir}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>webapp-outdir</key>
+                  <value>${webapp-outdir}</value>
+                </systemProperty>
+              </systemProperties>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>sample-main</id>
             <goals>
               <goal>java</goal>
             </goals>
             <!--
                         <phase>test-compile</phase>
             -->
+            <configuration>
+              <mainClass>io.hawt.sample.Main</mainClass>
+              <classpathScope>test</classpathScope>
+
+              <systemProperties>
+                <systemProperty>
+                  <key>basedir</key>
+                  <value>${basedir}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>fabricUrl</key>
+                  <value>${fabricUrl}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>jettyPort</key>
+                  <value>${jettyPort}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>context</key>
+                  <value>${context}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>webapp-outdir</key>
+                  <value>${webapp-outdir}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>hawtio.config.dir</key>
+                  <value>${hawtio-config-dir}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>jettyUseFileLock</key>
+                  <value>${jetty-use-file-lock}</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>karaf.data</key>
+                  <value>${project.build.directory}/karaf-data</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>hawtio.authenticationEnabled</key>
+                  <value>false</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>hawtio.forceBranding</key>
+                  <value>false</value>
+                </systemProperty>
+              </systemProperties>
+            </configuration>
           </execution>
         </executions>
-        <configuration>
-          <mainClass>io.hawt.sample.Main</mainClass>
-          <classpathScope>test</classpathScope>
-
-          <systemProperties>
-            <systemProperty>
-              <key>basedir</key>
-              <value>${basedir}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>fabricUrl</key>
-              <value>${fabricUrl}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>jettyPort</key>
-              <value>${jettyPort}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>context</key>
-              <value>${context}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>webapp-outdir</key>
-              <value>${webapp-outdir}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>hawtio.config.dir</key>
-              <value>${hawtio-config-dir}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>jettyUseFileLock</key>
-              <value>${jetty-use-file-lock}</value>
-            </systemProperty>
-            <systemProperty>
-              <key>karaf.data</key>
-              <value>${project.build.directory}/karaf-data</value>
-            </systemProperty>
-            <systemProperty>
-              <key>hawtio.authenticationEnabled</key>
-              <value>false</value>
-            </systemProperty>
-            <systemProperty>
-              <key>hawtio.forceBranding</key>
-              <value>false</value>
-            </systemProperty>
-          </systemProperties>
-        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -892,7 +902,9 @@
     <profile>
       <id>jasmine-test</id>
       <activation>
+<!--
         <activeByDefault>true</activeByDefault>
+-->
       </activation>
       <build>
         <plugins>
