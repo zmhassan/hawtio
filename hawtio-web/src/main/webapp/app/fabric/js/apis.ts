@@ -1,4 +1,8 @@
-/// <reference path='fabricPlugin.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/angularjs/angular.d.ts'/>
+/// <reference path='../../definitions/logger.d.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
+
 module Fabric {
 
   export function FabricApisController($scope, localStorage, $routeParams, $location, jolokia, workspace, $compile, $templateCache) {
@@ -71,8 +75,7 @@ module Fabric {
         $scope.responseJson = responseJson;
 
         try {
-          log.info("got cluster stuff3");
-          //console.log("got JSON: " + responseJson);
+          log.info("got json: " + responseJson);
           var json = JSON.parse(responseJson);
           $scope.apis = [];
           createFlatList($scope.apis, json);

@@ -1,12 +1,12 @@
 /// <reference path='../../definitions/libraries.d.ts'/>
 /// <reference path='pageTitle.ts'/>
 /// <reference path='workspace.ts'/>
-/// <reference path='helpers.ts'/>
+/// <reference path='coreHelpers.ts'/>
 /// <reference path='CodeEditor.ts'/>
 /// <reference path='helpRegistry.ts'/>
 /// <reference path='gridStyleDirective.ts'/>
 /// <reference path='folder.ts'/>
-/// <reference path='helpers.ts'/>
+/// <reference path='coreHelpers.ts'/>
 /// <reference path='dialog.ts'/>
 /// <reference path='tables.ts'/>
 /// <reference path='graphs.ts'/>

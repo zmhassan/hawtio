@@ -1,4 +1,4 @@
-/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
 /// <reference path='gantt.ts'/>
 /// <reference path='diagram.ts'/>
 /// <reference path='sequence.ts'/>

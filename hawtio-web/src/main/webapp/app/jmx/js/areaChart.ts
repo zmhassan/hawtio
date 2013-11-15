@@ -1,4 +1,4 @@
-/// <reference path='../../core/js/helpers.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
 
 module Jmx {
 

@@ -1,4 +1,9 @@
-/// <reference path='corePlugin.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/angularjs/angular.d.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/jquery/jquery.d.ts'/>
+/// <reference path='../../definitions/logger.d.ts'/>
+/// <reference path='../../definitions/sugar-1.3.d.ts'/>
+/// <reference path='coreHelpers.ts'/>
+
 // Lets use a NodeSelection interface so we can expose things like the objectName and the MBean's entries
 interface NodeSelection {
   title: string;

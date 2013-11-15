@@ -1,4 +1,4 @@
-/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
 /// <Reference path='helpers.ts'/>
 /// <reference path='schemaConfigure.ts'/>
 /// <reference path='model.ts'/>

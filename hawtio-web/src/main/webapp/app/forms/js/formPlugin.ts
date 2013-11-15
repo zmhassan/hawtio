@@ -1,4 +1,4 @@
-/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
 /// <reference path='helpers.ts'/>
 /// <reference path='simpleFormDirective.ts'/>
 /// <reference path='baseDirectives.ts'/>

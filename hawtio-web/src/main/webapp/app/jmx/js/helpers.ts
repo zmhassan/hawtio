@@ -1,6 +1,6 @@
 /// <reference path='../../definitions/libraries.d.ts'/>
 /// <reference path='../../core/js/folder.ts'/>
-/// <reference path='../../core/js/helpers.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
 /// <reference path='../../core/js/workspace.ts'/>
 
 module Jmx {
