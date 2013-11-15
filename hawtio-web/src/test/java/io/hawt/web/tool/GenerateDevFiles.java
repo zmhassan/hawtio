@@ -21,6 +21,7 @@ import io.hawt.sample.Main;
 import io.hawt.util.IOHelper;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -35,8 +36,10 @@ public class GenerateDevFiles {
     private final String baseDir;
     private final File sourceDir;
     private final File outputDir;
+    private final File appSourceDir;
     private Set<String> jsFiles = new TreeSet<String>();
     private String devIndexHtml = "index-dev.html";
+    private String appJsFile = "app/app.js";
     private List<String> jsFileList;
 
     public static void main(String[] args) {
@@ -56,14 +59,40 @@ public class GenerateDevFiles {
         this.outputDir = new File(outputDir);
         this.baseDir = System.getProperty("basedir", ".");
         sourceDir = new File(new File(baseDir), "src/main/webapp");
+        appSourceDir = new File(sourceDir, "app");
     }
 
+    public String getDevIndexHtml() {
+        return devIndexHtml;
+    }
 
+    public void setDevIndexHtml(String devIndexHtml) {
+        this.devIndexHtml = devIndexHtml;
+    }
+
+    public String getAppJsFile() {
+        return appJsFile;
+    }
+
+    public void setAppJsFile(String appJsFile) {
+        this.appJsFile = appJsFile;
+    }
+
+    public File getOutputDir() {
+        return outputDir;
+    }
+
+    public File getSourceDir() {
+        return sourceDir;
+    }
+
+    /**
+     * Performs all the code generation
+     */
     public void run() throws IOException {
         // lets iterate through finding a list of all the required JS pluginFolders
-        File appSourceDir = new File(sourceDir, "app");
 
-        assertDirectoryExists(appSourceDir, "source directory");
+        directoryExists(appSourceDir, "source directory");
         File[] pluginFolders = appSourceDir.listFiles();
         if (pluginFolders != null) {
             for (File pluginFolder : pluginFolders) {
@@ -76,6 +105,7 @@ public class GenerateDevFiles {
         }
         reorderFiles();
         generateDevIndexHtml();
+        generateAppJS();
     }
 
     protected void reorderFiles() {
@@ -98,23 +128,49 @@ public class GenerateDevFiles {
         jsFileList.addAll(jsFiles);
     }
 
-    public static void assertDirectoryExists(File appSourceDir, String kind) {
-        if (!appSourceDir.exists()) {
-            throw new IllegalStateException("No " + kind + "  at: " + appSourceDir.getAbsolutePath());
+    protected void generateAppJS() throws IOException {
+        File outputFile = createOutputFile(appJsFile);
+        outputFile.getParentFile().mkdirs();
+        FileWriter writer = new FileWriter(outputFile);
+        try {
+            for (String jsFileName : jsFileList) {
+                File jsFile = new File(sourceDir, jsFileName);
+                fileExists(jsFile);
+                String js = IOHelper.readFully(jsFile);
+                writer.write(js);
+                writer.write("\n");
+            }
+        } finally {
+            writer.close();
         }
-        if (!appSourceDir.isDirectory()) {
-            throw new IllegalStateException(kind + " is not a directory! " + appSourceDir.getAbsolutePath());
+    }
+
+
+    /**
+     * Ensures the given directory exists or throws an exception
+     */
+    public static void directoryExists(File dir, String kind) {
+        if (!dir.exists()) {
+            throw new IllegalStateException("No " + kind + "  at: " + dir.getAbsolutePath());
+        }
+        if (!dir.isDirectory()) {
+            throw new IllegalStateException(kind + " is not a directory! " + dir.getAbsolutePath());
+        }
+    }
+
+    /**
+     * Asserts that a file exists and is a file
+     */
+    public static void fileExists(File file) {
+        if (!file.exists() || !file.isFile()) {
+            throw new IllegalStateException("File does not exist " + file.getAbsolutePath());
         }
     }
 
     protected void generateDevIndexHtml() throws IOException {
         File indexHtml = new File(sourceDir, "index.html");
-        if (!indexHtml.exists() || !indexHtml.isFile()) {
-            throw new IllegalStateException("Source does not exist " + indexHtml.getAbsolutePath());
-        }
-        outputDir.mkdirs();
-        assertDirectoryExists(outputDir, "output directory");
-        File outputFile = new File(outputDir, devIndexHtml);
+        fileExists(indexHtml);
+        File outputFile = createOutputFile(devIndexHtml);
 
         String html = IOHelper.readFully(indexHtml);
         // TODO using a regex would be a little more resilient
@@ -130,6 +186,12 @@ public class GenerateDevFiles {
 
         IOHelper.write(outputFile, newHtml);
         System.out.println("Generated developer file " + outputFile.getAbsolutePath());
+    }
+
+    protected File createOutputFile(String outputFileName) {
+        outputDir.mkdirs();
+        directoryExists(outputDir, "output directory");
+        return new File(outputDir, outputFileName);
     }
 
     protected void addScriptTags(StringBuilder buffer) {

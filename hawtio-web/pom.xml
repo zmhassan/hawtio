@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
     <groupId>io.hawt</groupId>
     <artifactId>project</artifactId>
@@ -251,7 +252,7 @@
       <artifactId>activemq-jaas</artifactId>
       <version>${activemq-version}</version>
       <scope>test</scope>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-camel</artifactId>
@@ -370,26 +371,26 @@
             */debug/**
           </packagingExcludes>
           <failOnMissingWebXml>false</failOnMissingWebXml>
-<!--
-          TODO disabled using archiveClasses for https://github.com/hawtio/hawtio/issues/403
-          until we can figure out how to get the war to work inside OSGi again
+          <!--
+                    TODO disabled using archiveClasses for https://github.com/hawtio/hawtio/issues/403
+                    until we can figure out how to get the war to work inside OSGi again
 
-          <archiveClasses>true</archiveClasses>
--->
+                    <archiveClasses>true</archiveClasses>
+          -->
           <archive>
             <manifestFile>${basedir}/target/classes/META-INF/MANIFEST.MF</manifestFile>
           </archive>
-<!--
-          <webResources>
-            <resource>
-              <filtering>true</filtering>
-              <directory>src/main/resources</directory>
-              <includes>
-                <include>**/*.*</include>
-              </includes>
-            </resource>
-          </webResources>
--->
+          <!--
+                    <webResources>
+                      <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                          <include>**/*.*</include>
+                        </includes>
+                      </resource>
+                    </webResources>
+          -->
         </configuration>
       </plugin>
 
@@ -429,43 +430,6 @@
         </dependencies>
       </plugin>
 
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>${exec-maven-plugin-version}</version>
-        <executions>
-          <execution>
-            <id>npm-install</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>${npm-executable}</executable>
-              <arguments>
-                <argument>install</argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>typescript-compile</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>${grunt-executable}</executable>
-              <arguments>
-                <argument>--webapp_outdir</argument>
-                <argument>${webapp-outdir}</argument>
-                <argument>--webapp_port</argument>
-                <argument>${jettyPort}</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
 
       <!--
       <plugin>
@@ -501,12 +465,27 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>${jetty-version}</version>
         <configuration>
-          <webAppSourceDirectory>${project.build.directory}/${project.name}-${project.version}</webAppSourceDirectory>
+          <webAppConfig>
+            <contextPath>${context}</contextPath>
+                <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
+                  <resourcesAsCSV>${basedir}/src/main/webapp,${project.build.directory}/${project.name}-${project.version}</resourcesAsCSV>
+                </baseResource><!--
+            <resources>${basedir}/src/main/webapp,${project.build.directory}/${project.name}-${project.version}</resources>
+-->
+<!--
+            <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
+              <resources>${basedir}/src/main/webapp,${project.build.directory}/${project.name}-${project.version}
+              </resources>
+            </baseResource>
+-->
+          </webAppConfig>
           <scanIntervalSeconds>0</scanIntervalSeconds>
           <useTestScope>true</useTestScope>
+<!--
           <webAppConfig>
             <contextPath>${context}</contextPath>
           </webAppConfig>
+-->
           <connectors>
             <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
               <port>${jettyPort}</port>
@@ -741,8 +720,8 @@
                     <!-- copy the images from the eclipse plugin -->
                     <copy todir="${basedir}/src/main/webapp/img/camel" overwrite="true">
                       <fileset dir="${basedir}/../../../fuseide/plugins/org.fusesource.ide.camel.model/icons">
-                        <include name="*24.png" />
-                        <include name="*15.png" />
+                        <include name="*24.png"/>
+                        <include name="*15.png"/>
                       </fileset>
                     </copy>
                   </target>
@@ -867,6 +846,49 @@
       <id>release</id>
     </profile>
 
+    <profile>
+      <id>grunt</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>${exec-maven-plugin-version}</version>
+            <executions>
+              <execution>
+                <id>npm-install</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${npm-executable}</executable>
+                  <arguments>
+                    <argument>install</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>typescript-compile</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${grunt-executable}</executable>
+                  <arguments>
+                    <argument>--webapp_outdir</argument>
+                    <argument>${webapp-outdir}</argument>
+                    <argument>--webapp_port</argument>
+                    <argument>${jettyPort}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>jasmine-test</id>
       <activation>
