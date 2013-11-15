@@ -1,4 +1,4 @@
-/// <reference path='../../../d.ts/libraries.d.ts'/>
+/// <reference path='../../definitions/libraries.d.ts'/>
 /// <reference path='pageTitle.ts'/>
 /// <reference path='workspace.ts'/>
 /// <reference path='helpers.ts'/>

@@ -5,6 +5,8 @@ module Fabric {
 
     $scope.path = "apis";
 
+    var log:Logging.Logger = Logger.get("Fabric");
+
     Fabric.initScope($scope, $location, jolokia, workspace);
 
     function matchesFilter(text) {
@@ -69,6 +71,7 @@ module Fabric {
         $scope.responseJson = responseJson;
 
         try {
+          log.info("got cluster stuff3");
           //console.log("got JSON: " + responseJson);
           var json = JSON.parse(responseJson);
           $scope.apis = [];

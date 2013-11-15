@@ -1,4 +1,4 @@
-/// <reference path='../../../d.ts/libraries.d.ts'/>
+/// <reference path='../../definitions/libraries.d.ts'/>
 /// <reference path='workspace.ts'/>
 
 module CodeEditor {
