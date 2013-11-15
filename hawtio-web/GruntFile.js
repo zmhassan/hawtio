@@ -35,11 +35,11 @@ module.exports = function (grunt) {
         files: [
           {
             src: appFiles,
-            dest: "<%= grunt.option('webapp_outdir') %>/app/app.js"
+            dest:'src/main/webapp/app/'
           }
         ],
         options:{
-          sourcemap: false,
+          sourcemap: true,
           target: 'es5',
           //module:'amd',
           style:'eqeqeq;bitwise'
@@ -79,14 +79,18 @@ module.exports = function (grunt) {
     },
     concat: {
       main: {
-        src: ["target/schema/js/*.js", "<%= grunt.option('webapp_outdir') %>/app/app.js"],
+        src: ["target/schema/js/*.js", "src/main/webapp/app/**/*.js"],
         dest: "<%= grunt.option('webapp_outdir') %>/app/app.js"
       }
     },
     watch: {
       app: {
-        files: ["src/main/webapp/**", "target/schema/js/*.js"],
-        tasks: ['clean-appjs', 'type', 'concat', 'copy:dist'],
+        files: ["src/main/webapp/lib/**",
+                "src/main/webapp/app/**/*.js",
+                "src/main/webapp/img/**",
+                "src/main/webapp/css/**",
+                "target/schema/js/*.js"],
+        tasks: ['clean-appjs', 'concat', 'copy:dist'],
         options: {
           livereload: true
         }
@@ -99,6 +103,6 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['clean-appjs', 'type', 'concat', 'copy']);
 
   // watch source for changes
-  grunt.registerTask('watchSrc', ['clean-appjs', 'type', 'concat', 'copy', 'watch']);
+  grunt.registerTask('watchSrc', ['concat', 'copy', 'watch']);
 
 };

@@ -1,5 +1,8 @@
 /// <reference path='logPlugin.ts'/>
 module Log {
+
+  export var log:Logging.Logger = Logger.get("Logs");
+
   export function logSourceHref(row) {
     if (!row) {
       return "";

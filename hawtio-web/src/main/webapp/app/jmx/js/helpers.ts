@@ -9,7 +9,28 @@ module Jmx {
 
   var attributesToolBars = {};
 
-  export var lazyLoaders = null;
+  // TODO moved this from camel...
+  export var lazyLoaders:any = {
+    'org.apache.camel': [
+      (folder:Folder) => {
+        if ('org.apache.camel' === folder.domain && "routes" === folder.typeName) {
+          return (workspace, folder, onComplete) => {
+            if ("routes" === folder.typeName) {
+              Camel.processRouteXml(workspace, workspace.jolokia, folder, (route) => {
+                if (route) {
+                  Camel.addRouteChildren(folder, route);
+                }
+                onComplete();
+              });
+            } else {
+              onComplete();
+            }
+          }
+        }
+        return null;
+      }
+    ]
+  };
 
   export function findLazyLoadingFunction(workspace, folder) {
     var factories = workspace.jmxTreeLazyLoadRegistry[folder.domain];

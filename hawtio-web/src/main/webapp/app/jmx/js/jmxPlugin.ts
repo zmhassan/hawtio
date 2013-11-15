@@ -1,6 +1,7 @@
 /// <reference path='../../core/js/corePlugin.ts'/>
 /// <reference path='helpers.ts'/>
 /// <reference path='widgetRepository.ts'/>
+/// <reference path='../../camel/js/camelPlugin.ts'/>
 
 module Jmx {
   var pluginName = 'jmx';

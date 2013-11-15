@@ -190,6 +190,9 @@ module Log {
 
 
     var updateValues = function (response) {
+      if (!response.value) {
+        return;
+      }
       var scrollToBottom = false;
       if (!$scope.inDashboard) {
         var window = $($window);

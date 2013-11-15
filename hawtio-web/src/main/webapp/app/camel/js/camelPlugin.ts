@@ -16,7 +16,7 @@ module Camel {
 
 
   angular.module(pluginName, ['bootstrap', 'ui.bootstrap',
-            'ui.bootstrap.dialog', 'ui.bootstrap.tabs', 'ui.bootstrap.typeahead', 'ngResource', 'hawtioCore', 'hawtio-ui']).
+            'ui.bootstrap.dialog', 'ui.bootstrap.tabs', 'ui.bootstrap.typeahead', 'ngResource', 'hawtioCore', 'hawtio-ui', 'jmx']).
           config(($routeProvider) => {
             $routeProvider.
                     when('/camel/browseEndpoint', {templateUrl: 'app/camel/html/browseEndpoint.html'}).
@@ -221,24 +221,4 @@ module Camel {
 
   hawtioPluginLoader.addModule(pluginName);
 
-  // register the jmx lazy loader here as it won't have been invoked in the run methot
-  hawtioPluginLoader.loadPlugins(() => {
-    jmxModule.registerLazyLoadHandler(jmxDomain, (folder:Folder) => {
-      if (jmxDomain === folder.domain && "routes" === folder.typeName) {
-        return (workspace, folder, onComplete) => {
-          if ("routes" === folder.typeName) {
-            processRouteXml(workspace, workspace.jolokia, folder, (route) => {
-              if (route) {
-                addRouteChildren(folder, route);
-              }
-              onComplete();
-            });
-          } else {
-            onComplete();
-          }
-        }
-      }
-      return null;
-    });
-  });
 }
