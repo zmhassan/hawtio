@@ -1,4 +1,9 @@
-///<reference path='apiPlugin.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/angularjs/angular.d.ts'/>
+/// <reference path='../../definitions/DefinitelyTyped/jquery/jquery.d.ts'/>
+/// <reference path='../../definitions/logger.d.ts'/>
+/// <reference path='../../definitions/sugar-1.3.d.ts'/>
+/// <reference path='../../core/js/coreHelpers.ts'/>
+
 module API {
 
   var log:Logging.Logger = Logger.get("API");
