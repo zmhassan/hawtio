@@ -20,14 +20,13 @@ package io.hawt.web.tool;
 import io.hawt.sample.Main;
 import io.hawt.util.IOHelper;
 
-import javax.annotation.Generated;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.Callable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Generate the developer HTML files using the individual JS files
@@ -38,6 +37,7 @@ public class GenerateDevFiles {
     private final File outputDir;
     private Set<String> jsFiles = new TreeSet<String>();
     private String devIndexHtml = "index-dev.html";
+    private List<String> jsFileList;
 
     public static void main(String[] args) {
         String outputDir = Main.getWebAppOutputDir();
@@ -74,8 +74,28 @@ public class GenerateDevFiles {
                 }
             }
         }
-
+        reorderFiles();
         generateDevIndexHtml();
+    }
+
+    protected void reorderFiles() {
+        jsFileList = new ArrayList<String>();
+
+        // lets add things in plugin order
+        String[] pluginOrder = {"core", "jmx", "log", "tree", "branding"};
+        for (String plugin : pluginOrder) {
+            String prefix = "app/" + plugin + "/";
+            Iterator<String> iterator = jsFiles.iterator();
+            while (iterator.hasNext()) {
+                String jsFile = iterator.next();
+                if (jsFile.startsWith(prefix)) {
+                    jsFileList.add(jsFile);
+                    iterator.remove();
+                }
+            }
+        }
+
+        jsFileList.addAll(jsFiles);
     }
 
     public static void assertDirectoryExists(File appSourceDir, String kind) {
@@ -104,7 +124,6 @@ public class GenerateDevFiles {
             throw new IllegalStateException("Could not find the script tag: " + scriptTag + " in " + indexHtml.getAbsolutePath());
         }
         StringBuilder buffer = new StringBuilder(html.substring(0, idx));
-
         addScriptTags(buffer);
         buffer.append(html.substring(idx + scriptTag.length()));
         String newHtml = buffer.toString();
@@ -114,7 +133,7 @@ public class GenerateDevFiles {
     }
 
     protected void addScriptTags(StringBuilder buffer) {
-        for (String jsFile : jsFiles) {
+        for (String jsFile : jsFileList) {
             buffer.append("<script type=\"text/javascript\" src=\"");
             buffer.append(jsFile);
             buffer.append("\"></script>");
