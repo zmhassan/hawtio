@@ -1,4 +1,3 @@
-/// <reference path='camelPlugin.ts'/>
 module Camel {
   export var jmsHeaderSchema = {
     definitions: {
