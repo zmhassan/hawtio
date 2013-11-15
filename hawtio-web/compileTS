@@ -6,40 +6,42 @@
 #
 #tsc --watch --out src/main/webapp/js/app.js src/main/d.ts/* src/main/webapp/app/*/js/*.ts
 
-on_die()
-{
-  echo "Dying..."
-  keepRunning=0
-  exit 0
-}
+#on_die()
+#{
+#  echo "Dying..."
+#  keepRunning=0
+#  exit 0
+#}
 
 # Execute function on_die() receiving TERM signal
 #
-trap 'on_die' TERM
+#trap 'on_die' TERM
 
-keepRunning=1;
+#keepRunning=1;
 
-tsFiles=$(find . -type f -name *.ts | grep -v [.]d[.]ts | grep -v test | grep -v target)
+tsFiles=$(find . -type f -name *.ts | grep -v [.]d[.]ts | grep -v /test/ | grep -v target)
 
-for each in $tsFiles
-do  
-  echo "Compiling $each"
-  tsc --sourcemap --target es5 "$each"
-  retVal=$?
-  while [ $retVal -ne 0 -a $keepRunning -ne 0 ]
-  do
-    echo "Waiting for changes to $each"
-    watch --no-title -n 0.5 -g "ls -al $each" > output.txt 2>&1
-    echo "Compiling $each"
-    if [ $keepRunning -eq 0 ]
-    then
-      exit 0
-    fi
-    tsc --sourcemap --target es5 "$each"
-    retVal=$?
-  done
-  if [ $keepRunning -eq 0 ]
-  then
-    exit 0
-  fi
-done
+tsc --sourcemap --target es5 $tsFiles
+
+#for each in $tsFiles
+#do
+#  echo "Compiling $each"
+#  tsc --sourcemap --target es5 "$each"
+#  retVal=$?
+#  while [ $retVal -ne 0 -a $keepRunning -ne 0 ]
+#  do
+#    echo "Waiting for changes to $each"
+#    watch --no-title -n 0.5 -g "ls -al $each" > output.txt 2>&1
+#    echo "Compiling $each"
+#    if [ $keepRunning -eq 0 ]
+#    then
+#      exit 0
+#    fi
+#    tsc --sourcemap --target es5 "$each"
+#    retVal=$?
+#  done
+#  if [ $keepRunning -eq 0 ]
+#  then
+#    exit 0
+#  fi
+#done
