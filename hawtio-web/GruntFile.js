@@ -90,7 +90,10 @@ module.exports = function (grunt) {
                 "src/main/webapp/img/**",
                 "src/main/webapp/css/**",
                 "target/schema/js/*.js"],
-        tasks: ['clean-appjs', 'concat', 'copy:dist'],
+
+        //tasks: ['clean-appjs', 'concat', 'copy:dist'],
+
+        tasks: [],
         options: {
           livereload: true
         }
@@ -103,6 +106,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['clean-appjs', 'type', 'concat', 'copy']);
 
   // watch source for changes
-  grunt.registerTask('watchSrc', ['concat', 'copy', 'watch']);
+  //grunt.registerTask('watchSrc', ['concat', 'copy', 'watch']);
+  grunt.registerTask('watchSrc', ['watch']);
 
 };
