@@ -1,3 +1,4 @@
+/// <reference path='camelInsightPlugin.ts'/>
 module Camin {
 
     export class Sequence {

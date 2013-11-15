@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='cli.ts'/>
 module Infinispan {
   var pluginName = 'infinispan';
   export var jmxDomain = 'Infinispan';

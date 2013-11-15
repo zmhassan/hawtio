@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
 
   export function ContainerController($scope, $routeParams, $location, localStorage, jolokia, workspace, userDetails) {

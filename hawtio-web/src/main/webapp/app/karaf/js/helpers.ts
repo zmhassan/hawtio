@@ -1,3 +1,4 @@
+/// <reference path='karafPlugin.ts'/>
 module Karaf {
 
   export var log:Logging.Logger = Logger.get("Karaf");

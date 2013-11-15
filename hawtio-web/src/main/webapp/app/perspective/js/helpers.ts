@@ -1,3 +1,4 @@
+/// <reference path='perspectivePlugin.ts'/>
 module Perspective {
 
   export var log:Logging.Logger = Logger.get("Perspective");

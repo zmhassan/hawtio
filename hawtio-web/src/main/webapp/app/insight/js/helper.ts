@@ -1,3 +1,4 @@
+/// <reference path='insightPlugin.ts'/>
 module Insight {
 
     export var managerMBean = "org.fusesource.fabric:type=Fabric";

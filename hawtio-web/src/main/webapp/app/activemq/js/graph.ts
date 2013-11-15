@@ -1,3 +1,4 @@
+/// <reference path='activemqPlugin.ts'/>
 module ActiveMQ {
   export function SubscriberGraphController($scope, $element, $timeout, workspace:Workspace, jolokia) {
     $scope.nodes = [];

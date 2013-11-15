@@ -1,3 +1,4 @@
+/// <reference path='corePlugin.ts'/>
 module Core {
 
   export function PreferencesController($scope, localStorage, userDetails, jolokiaUrl, branding) {

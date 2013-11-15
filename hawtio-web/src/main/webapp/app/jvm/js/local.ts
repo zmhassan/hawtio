@@ -1,4 +1,5 @@
-  module JVM {
+/// <reference path='jvmPlugin.ts'/>
+module JVM {
 
   export function JVMsController($scope, $window, $location, workspace, jolokia, mbeanName) {
 

@@ -1,3 +1,4 @@
+/// <reference path='camelPlugin.ts'/>
 module Camel {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

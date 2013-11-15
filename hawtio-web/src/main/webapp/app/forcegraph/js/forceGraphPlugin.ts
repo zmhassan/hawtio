@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='forceGraphDirective.ts'/>
+/// <reference path='graphBuilder.ts'/>
 module ForceGraph {
     var pluginName = 'forceGraph';
 

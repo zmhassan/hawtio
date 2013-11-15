@@ -1,3 +1,5 @@
+/// <reference path='dashboardPlugin.ts'/>
+
 module Dashboard {
 
   export class RectangleLocation { // TODO implements ng.ILocationService {

@@ -1,3 +1,4 @@
+/// <reference path='corePlugin.ts'/>
 module Core {
 
   export class PageTitle {

@@ -1,3 +1,4 @@
+/// <reference path='healthPlugin.ts'/>
 module Health {
 
     export function HealthController($scope, jolokia, workspace:Workspace, $templateCache) {

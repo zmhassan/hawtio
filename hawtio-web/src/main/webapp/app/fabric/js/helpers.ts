@@ -1,5 +1,4 @@
 /// <reference path='fabricPlugin.ts'/>
-
 module Fabric {
 
   export var log:Logging.Logger = Logger.get("Fabric");
@@ -258,7 +257,7 @@ module Fabric {
    * @param count
    * @returns {string}
    */
-  export function containerCountBadgeStyle(min, count) {
+  export function containerCountBadgeStyle(min:number, count:number) {
     if (min) {
       if (!count) {
         return "badge-important";

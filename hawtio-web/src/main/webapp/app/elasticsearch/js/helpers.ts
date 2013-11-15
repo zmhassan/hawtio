@@ -1,3 +1,4 @@
+/// <reference path='esPlugin.ts'/>
 module ES {
 
     // Function to test if a property is empty, not null

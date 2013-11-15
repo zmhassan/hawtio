@@ -1,3 +1,4 @@
+/// <reference path='activemqPlugin.ts'/>
 module ActiveMQ {
 
   export var log:Logging.Logger = Logger.get("activemq");

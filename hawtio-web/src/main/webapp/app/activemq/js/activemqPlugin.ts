@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+
 module ActiveMQ {
   var pluginName = 'activemq';
   var jmxDomain = 'org.apache.activemq';

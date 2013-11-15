@@ -1,3 +1,4 @@
+///<reference path='apiPlugin.ts'/>
 module API {
 
   var log:Logging.Logger = Logger.get("API");

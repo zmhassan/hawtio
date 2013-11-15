@@ -1,3 +1,4 @@
+/// <reference path='wikiPlugin.ts'/>
 module Wiki {
 
   export function FormTableController($scope, $location, $routeParams, workspace:Workspace, wikiRepository:GitWikiRepository) {

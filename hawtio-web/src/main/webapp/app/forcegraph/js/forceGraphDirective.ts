@@ -1,3 +1,4 @@
+/// <reference path='forceGraphPlugin.ts'/>
 module ForceGraph {
 
     export class ForceGraphDirective {

@@ -1,3 +1,4 @@
+/// <reference path='dashboardPlugin.ts'/>
 module Dashboard {
   export function ShareController($scope, $location, $routeParams, workspace:Workspace, dashboardRepository:DashboardRepository) {
     var id = $routeParams["dashboardId"];

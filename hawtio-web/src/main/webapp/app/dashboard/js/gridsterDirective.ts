@@ -1,3 +1,4 @@
+/// <reference path='dashboardPlugin.ts'/>
 module Dashboard {
 
   export class GridsterDirective {

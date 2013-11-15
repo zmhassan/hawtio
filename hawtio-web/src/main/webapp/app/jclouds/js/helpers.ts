@@ -1,3 +1,4 @@
+/// <reference path='jcloudsPlugin.ts'/>
 module Jclouds {
 
     Array.prototype.unique = function() {

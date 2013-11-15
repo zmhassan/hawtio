@@ -1,3 +1,4 @@
+/// <reference path='insightPlugin.ts'/>
 module Insight {
 
     export function AllController($scope, jolokia, localStorage) {

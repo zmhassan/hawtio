@@ -1,3 +1,4 @@
+/// <reference path='mavenPlugin.ts'/>
 module Maven {
 
   export function VersionsController($scope, $routeParams, workspace:Workspace, jolokia) {

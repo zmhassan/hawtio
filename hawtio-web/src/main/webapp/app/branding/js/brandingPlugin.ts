@@ -1,4 +1,4 @@
-/// <reference path='../../../d.ts/libraries.d.ts'/>
+/// <reference path='../../core/js/corePlugin.ts'/>
 
 module Branding {
 

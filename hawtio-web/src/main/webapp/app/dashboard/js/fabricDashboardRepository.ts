@@ -1,5 +1,5 @@
+/// <reference path='dashboardPlugin.ts'/>
 module Dashboard {
-
 
   export class FabricDashboardRepository implements DashboardRepository {
 
@@ -24,7 +24,7 @@ module Dashboard {
       }
     }
 
-    public putDashboards(array:Dashboard[], commitMessage:string, fn) {
+    public putDashboards(array, commitMessage:string, fn) {
       var jolokia = this.jolokia;
       var details = this.details;
 
@@ -62,7 +62,7 @@ module Dashboard {
 
     }
 
-    public deleteDashboards(array:Dashboard[], fn) {
+    public deleteDashboards(array, fn) {
       var jolokia = this.jolokia;
       var details = this.details;
 

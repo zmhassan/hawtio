@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
   export function PatchingController($scope, jolokia, localStorage, $location) {
 

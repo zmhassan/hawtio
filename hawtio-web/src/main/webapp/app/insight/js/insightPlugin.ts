@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helper.ts'/>
+
 module Insight {
 
     // create our angular module and tell angular what route(s) it will handle

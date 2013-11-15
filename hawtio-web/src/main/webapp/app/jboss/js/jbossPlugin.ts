@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+
 module JBoss {
   var pluginName = 'jboss';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'ui.bootstrap.dialog', 'hawtioCore']).

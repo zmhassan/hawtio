@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+
 module Health {
   var pluginName = 'health';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'hawtioCore', 'hawtio-ui']).config(($routeProvider) => {

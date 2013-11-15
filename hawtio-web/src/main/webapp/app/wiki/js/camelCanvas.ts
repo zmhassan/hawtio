@@ -1,3 +1,4 @@
+/// <reference path='wikiPlugin.ts'/>
 module Wiki {
   export function CamelCanvasController($scope, $element, workspace:Workspace, jolokia, wikiRepository:GitWikiRepository) {
     $scope.addDialog = new Core.Dialog();

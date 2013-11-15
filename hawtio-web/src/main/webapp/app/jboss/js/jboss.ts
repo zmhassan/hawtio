@@ -1,3 +1,4 @@
+/// <reference path='jbossPlugin.ts'/>
 module JBoss {
     export function JBossController($scope, $location:ng.ILocationService, jolokia) {
 

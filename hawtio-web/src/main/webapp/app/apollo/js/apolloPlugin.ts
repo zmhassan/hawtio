@@ -1,3 +1,4 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
 module Apollo {
   var pluginName = 'apollo';
   angular.

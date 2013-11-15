@@ -1,3 +1,4 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
 module OpenEJB {
   var pluginName = 'openejb';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'hawtioCore']).config(($routeProvider) => {

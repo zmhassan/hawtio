@@ -1,3 +1,4 @@
+/// <reference path='wikiPlugin.ts'/>
 module Wiki {
 
   export var log:Logging.Logger = Logger.get("Wiki");

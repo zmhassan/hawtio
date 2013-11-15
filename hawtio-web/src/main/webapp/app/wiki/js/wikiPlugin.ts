@@ -1,8 +1,10 @@
 /// <reference path='../../core/js/corePlugin.ts'/>
-/// <reference path='../../git/js/helpers.ts'/>
 /// <reference path='helpers.ts'/>
 /// <reference path='wikiRepository.ts'/>
-
+/// <reference path='../../git/js/gitPlugin.ts'/>
+/// <reference path='../../fabric/js/fabricPlugin.ts'/>
+/// <reference path='../../camel/js/camelPlugin.ts'/>
+/// <reference path='../../dozer/js/dozerPlugin.ts'/>
 module Wiki {
 
   var pluginName = 'wiki';

@@ -1,3 +1,4 @@
+/// <reference path='activemqPlugin.ts'/>
 module ActiveMQ {
   export function BrowseQueueController($scope, workspace:Workspace, jolokia) {
 

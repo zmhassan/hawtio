@@ -1,3 +1,4 @@
+/// <reference path='dozerPlugin.ts'/>
 module Dozer {
 
   /**

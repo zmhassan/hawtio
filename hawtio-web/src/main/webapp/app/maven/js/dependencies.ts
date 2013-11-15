@@ -1,3 +1,4 @@
+/// <reference path='mavenPlugin.ts'/>
 module Maven {
 
   export function DependenciesController($scope, $routeParams, $location, workspace:Workspace, jolokia) {

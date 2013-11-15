@@ -1,3 +1,7 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='config.ts'/>
+
 module ES {
 
     var pluginEsName = 'elasticjs';

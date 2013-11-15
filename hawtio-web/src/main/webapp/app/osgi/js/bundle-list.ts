@@ -1,3 +1,4 @@
+/// <reference path='osgiPlugin.ts'/>
 module Osgi {
   export function BundleListController($scope, workspace:Workspace, jolokia) {
     $scope.result = {};

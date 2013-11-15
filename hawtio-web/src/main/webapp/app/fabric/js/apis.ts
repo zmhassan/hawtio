@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
 
   export function FabricApisController($scope, localStorage, $routeParams, $location, jolokia, workspace, $compile, $templateCache) {

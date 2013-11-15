@@ -1,3 +1,4 @@
+/// <reference path='dashboardPlugin.ts'/>
 module Dashboard {
   export function NavBarController($scope, $routeParams, $rootScope, workspace:Workspace,
                                    dashboardRepository: DefaultDashboardRepository) {

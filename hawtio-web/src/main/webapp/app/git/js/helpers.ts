@@ -1,6 +1,4 @@
-/// <reference path='../../core/js/corePlugin.ts'/>
-/// <reference path='git.ts'/>
-
+/// <reference path='gitPlugin.ts'/>
 module Git {
 
   export function createGitRepository(workspace:Workspace, jolokia, localStorage):GitRepository {

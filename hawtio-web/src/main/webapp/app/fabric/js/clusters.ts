@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
 
   export function ClusterController($scope, $location, $routeParams, workspace:Workspace, jolokia) {

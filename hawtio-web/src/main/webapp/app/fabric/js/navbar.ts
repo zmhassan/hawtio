@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
   export function NavBarController($scope, $location, jolokia, workspace:Workspace, localStorage) {
 

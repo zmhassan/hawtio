@@ -1,3 +1,12 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='dashboardRepository.ts'/>
+/// <reference path='fabricDashboardRepository.ts'/>
+/// <reference path='gridsterDirective.ts'/>
+/// <reference path='rectangleLocation.ts'/>
+/// <reference path='../../fabric/js/fabricPlugin.ts'/>
+/// <reference path='../../git/js/gitPlugin.ts'/>
+/// <reference path='../../ui/js/uiPlugin.ts'/>
 module Dashboard {
   
   export var templatePath = 'app/dashboard/html/';

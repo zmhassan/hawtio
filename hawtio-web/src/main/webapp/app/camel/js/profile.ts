@@ -1,3 +1,4 @@
+/// <reference path='camelPlugin.ts'/>
 module Camel {
 
     export function ProfileRouteController($scope, $location, workspace:Workspace, jolokia) {

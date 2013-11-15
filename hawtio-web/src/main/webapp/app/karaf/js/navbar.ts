@@ -1,3 +1,4 @@
+/// <reference path='karafPlugin.ts'/>
 module Karaf {
 
   export function NavBarController($scope, workspace:Workspace) {

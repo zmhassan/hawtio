@@ -1,3 +1,4 @@
+/// <reference path='jvmPlugin.ts'/>
 module JVM {
 
   /**

@@ -1,3 +1,4 @@
+/// <reference path='dozerPlugin.ts'/>
 module Dozer {
   export class Mappings {
     constructor(public doc:any, public mappings:Mapping[] = []) {

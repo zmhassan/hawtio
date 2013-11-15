@@ -1,3 +1,4 @@
+/// <reference path='uiPlugin.ts'/>
 module UI {
 
   // expand the element to accomodate a group of elements to prevent them from wrapping

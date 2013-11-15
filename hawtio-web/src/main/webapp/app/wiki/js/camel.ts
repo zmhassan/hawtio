@@ -1,3 +1,5 @@
+/// <reference path='wikiPlugin.ts'/>
+
 module Wiki {
 
   export function CamelController($scope, $location, $routeParams, workspace:Workspace, wikiRepository:GitWikiRepository, jolokia) {

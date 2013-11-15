@@ -1,3 +1,7 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='../../maven/js/mavenPlugin.ts'/>
+/// <reference path='../../branding/js/brandingPlugin.ts'/>
 module Log {
   var pluginName = 'log';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'ngGrid', 'datatable', 'hawtioCore']).

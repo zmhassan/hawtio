@@ -1,3 +1,4 @@
+/// <reference path='infinispanPlugin.ts'/>
 module Infinispan {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

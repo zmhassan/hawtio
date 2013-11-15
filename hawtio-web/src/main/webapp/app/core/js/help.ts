@@ -1,3 +1,4 @@
+/// <reference path='corePlugin.ts'/>
 module Core {
   export function HelpController($scope, $routeParams, marked, helpRegistry, branding) {
 

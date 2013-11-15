@@ -1,3 +1,4 @@
+/// <reference path='wikiPlugin.ts'/>
 module Wiki {
 
   function goToLink(link, $timeout, $location) {

@@ -1,3 +1,4 @@
+/// <reference path='mavenPlugin.ts'/>
 module Maven {
   export function TestController($scope, workspace, jolokia, $q, $templateCache) {
 

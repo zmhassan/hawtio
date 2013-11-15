@@ -1,3 +1,4 @@
+/// <reference path='dashboardPlugin.ts'/>
 module Dashboard {
 
   var defaultDashboards = [
@@ -272,7 +273,7 @@ module Dashboard {
 
     public branch: string = null;
 
-    public putDashboards(array:Dashboard[], commitMessage:string, fn) {
+    public putDashboards(array, commitMessage:string, fn) {
       var toPut = array.length;
       var maybeCallback = () => {
         toPut = toPut - 1;
@@ -290,7 +291,7 @@ module Dashboard {
       });
     }
 
-    public deleteDashboards(array:Dashboard[], fn) {
+    public deleteDashboards(array, fn) {
       var toDelete = array.length;
       var maybeCallback = () => {
         toDelete = toDelete - 1;

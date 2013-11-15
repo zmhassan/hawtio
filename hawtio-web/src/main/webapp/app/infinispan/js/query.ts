@@ -1,3 +1,5 @@
+/// <reference path='infinispanPlugin.ts'/>
+
 module Infinispan {
 
   export function QueryController($scope, $location, workspace:Workspace, jolokia) {

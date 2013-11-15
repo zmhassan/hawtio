@@ -1,3 +1,4 @@
+/// <reference path='../jcloudsPlugin.ts'/>
 module Jclouds {
     export function HardwareListController($scope, $location, workspace, jolokia, $routeParams) {
         $scope.computeId = $routeParams.computeId;

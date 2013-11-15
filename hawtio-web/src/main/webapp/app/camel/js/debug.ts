@@ -1,3 +1,4 @@
+/// <reference path='camelPlugin.ts'/>
 module Camel {
   export function DebugRouteController($scope, $element, workspace:Workspace, jolokia) {
     // ignore the cached stuff in camel.ts as it seems to bork the node ids for some reason...

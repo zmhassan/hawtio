@@ -1,3 +1,4 @@
+/// <reference path='jbossPlugin.ts'/>
 module JBoss {
 
   export function DmrController($scope, $location, workspace:Workspace) {

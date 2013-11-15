@@ -1,3 +1,4 @@
+/// <reference path='tomcatPlugin.ts'/>
 module Tomcat {
 
     export function TomcatController($scope, $location, workspace:Workspace, jolokia) {

@@ -1,3 +1,4 @@
+/// <reference path='jbossPlugin.ts'/>
 module JBoss {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

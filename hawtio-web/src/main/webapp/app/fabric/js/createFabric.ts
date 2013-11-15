@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
 
   export function CreateFabricController($scope, jolokia, $location, workspace:Workspace, branding) {

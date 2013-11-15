@@ -1,3 +1,4 @@
+/// <reference path='activemqPlugin.ts'/>
 module ActiveMQ {
   export function DestinationController($scope, workspace:Workspace, jolokia) {
     $scope.workspace = workspace;

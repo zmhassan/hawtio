@@ -1,3 +1,4 @@
+/// <reference path='camelPlugin.ts'/>
 module Camel {
 
   export function BrowseEndpointController($scope, workspace:Workspace, jolokia) {

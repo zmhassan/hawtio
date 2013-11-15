@@ -1,3 +1,4 @@
+/// <reference path='camelInsightPlugin.ts'/>
 module Camin {
 
     export function Controller($scope, jolokia, localStorage, $routeParams) {

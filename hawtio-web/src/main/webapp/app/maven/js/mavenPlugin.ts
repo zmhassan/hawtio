@@ -1,3 +1,5 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
 module Maven {
   var pluginName = 'maven';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'datatable', 'tree', 'hawtioCore', 'hawtio-ui']).

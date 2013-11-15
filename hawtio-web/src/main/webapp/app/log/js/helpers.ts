@@ -1,3 +1,4 @@
+/// <reference path='logPlugin.ts'/>
 module Log {
   export function logSourceHref(row) {
     if (!row) {

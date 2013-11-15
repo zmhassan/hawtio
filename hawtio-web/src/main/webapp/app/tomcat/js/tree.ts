@@ -1,3 +1,4 @@
+/// <reference path='tomcatPlugin.ts'/>
 module Tomcat {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

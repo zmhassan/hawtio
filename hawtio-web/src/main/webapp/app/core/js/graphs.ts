@@ -1,3 +1,4 @@
+/// <reference path='corePlugin.ts'/>
 module Core {
 
   export function d3ForceGraph(scope, nodes, links, canvasElement) {

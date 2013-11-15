@@ -8,8 +8,11 @@
 /// <reference path='folder.ts'/>
 /// <reference path='helpers.ts'/>
 /// <reference path='dialog.ts'/>
+/// <reference path='tables.ts'/>
+/// <reference path='graphs.ts'/>
 /// <reference path='../../jmx/js/jmxPlugin.ts'/>
-
+/// <reference path='../../ui/js/uiPlugin.ts'/>
+/// <reference path='../../perspective/js/perspectivePlugin.ts'/>
 
 // Add any other known possible jolokia URLs here
 var jolokiaUrls = [

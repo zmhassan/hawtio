@@ -1,3 +1,4 @@
+/// <reference path='jcloudsPlugin.ts'/>
 module Jclouds {
 
     export function ProviderController($scope, $filter:ng.IFilterService, workspace:Workspace, $routeParams) {

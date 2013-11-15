@@ -1,3 +1,4 @@
+/// <reference path='jmxPlugin.ts'/>
 module Jmx {
 
   export function createDashboardLink(widgetType, widget) {

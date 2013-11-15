@@ -1,3 +1,4 @@
+/// <reference path='jbossPlugin.ts'/>
 module JBoss {
 
     export function ConnectorsController($scope, $location, workspace:Workspace, jolokia) {

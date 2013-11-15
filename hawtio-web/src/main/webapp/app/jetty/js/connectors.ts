@@ -1,3 +1,4 @@
+/// <reference path='jettyPlugin.ts'/>
 module Jetty {
 
   export function ConnectorsController($scope, $location, workspace:Workspace, jolokia) {

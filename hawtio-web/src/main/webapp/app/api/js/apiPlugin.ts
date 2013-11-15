@@ -1,3 +1,6 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='../../ui/js/uiPlugin.ts'/>
 module API {
   var pluginName = 'api';
   angular.module(pluginName, ['bootstrap', 'hawtioCore', 'hawtio-ui']).

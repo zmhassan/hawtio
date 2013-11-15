@@ -1,3 +1,11 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='defaultPage.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='metadata.ts'/>
+
+/// <reference path='../../fabric/js/fabricPlugin.ts'/>
+/// <reference path='../../insight/js/insightPlugin.ts'/>
+
 module Perspective {
   var pluginName = 'perspective';
   angular.module(pluginName, ['hawtioCore']).

@@ -1,3 +1,5 @@
+/// <reference path='logPlugin.ts'/>
+
 module Log {
   export interface ILog {
     // TODO What is the point of seq?

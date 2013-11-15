@@ -1,3 +1,4 @@
+/// <reference path='karafPlugin.ts'/>
 module Karaf {
 
   export function FeaturesController($scope, $location, workspace, jolokia) {

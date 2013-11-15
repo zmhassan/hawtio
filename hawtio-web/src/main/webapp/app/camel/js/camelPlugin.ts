@@ -1,4 +1,9 @@
-/// <reference path="../../jmx/js/helpers.ts"/>
+/// <reference path="../../core/js/corePlugin.ts"/>
+/// <reference path='helpers.ts'/>
+/// <reference path='endpointChooser.ts'/>
+/// <reference path='camelHeaderSchema.ts'/>
+/// <reference path='jmsHeaderSchema.ts'/>
+/// <reference path="../../jmx/js/jmxPlugin.ts"/>
 
 module Camel {
   import jmxModule = Jmx;

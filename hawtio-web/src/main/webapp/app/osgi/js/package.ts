@@ -1,3 +1,4 @@
+/// <reference path='osgiPlugin.ts'/>
 module Osgi {
 
     export function PackageController($scope, $filter:ng.IFilterService, workspace:Workspace, $routeParams) {

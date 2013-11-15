@@ -1,3 +1,7 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='gantt.ts'/>
+/// <reference path='diagram.ts'/>
+/// <reference path='sequence.ts'/>
 module Camin {
   var pluginName = 'camin';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'ngGrid', 'hawtioCore']).

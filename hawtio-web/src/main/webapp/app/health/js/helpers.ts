@@ -1,3 +1,4 @@
+/// <reference path='healthPlugin.ts'/>
 module Health {
 
   export var log:Logging.Logger = Logger.get("Health");

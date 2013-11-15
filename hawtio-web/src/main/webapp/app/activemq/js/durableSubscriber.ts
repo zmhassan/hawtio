@@ -1,3 +1,5 @@
+/// <reference path='activemqPlugin.ts'/>
+
 module ActiveMQ {
   export function DurableSubscriberController($scope, workspace:Workspace, jolokia) {
 

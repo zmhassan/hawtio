@@ -1,3 +1,4 @@
+/// <reference path='jcloudsPlugin.ts'/>
 module Jclouds {
     export function ApiListController($scope, $location, workspace, jolokia) {
 

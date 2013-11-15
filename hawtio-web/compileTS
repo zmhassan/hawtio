@@ -8,18 +8,10 @@
 
 on_die()
 {
-	# print message
-	#
-	echo "Dying..."
-  keepRunning = 0;
-
-	# Need to exit the script explicitly when done.
-	# Otherwise the script would live on, until system
-	# realy goes down, and KILL signals are send.
-	#
-	exit 0
+  echo "Dying..."
+  keepRunning=0
+  exit 0
 }
-
 
 # Execute function on_die() receiving TERM signal
 #
@@ -33,7 +25,20 @@ for each in $tsFiles
 do  
   echo "Compiling $each"
   tsc --sourcemap --target es5 "$each"
-  if [ $keepRunning -a $? -ne 0 ]
+  retVal=$?
+  while [ $retVal -ne 0 -a $keepRunning -ne 0 ]
+  do
+    echo "Waiting for changes to $each"
+    watch --no-title -n 0.5 -g "ls -al $each" > output.txt 2>&1
+    echo "Compiling $each"
+    if [ $keepRunning -eq 0 ]
+    then
+      exit 0
+    fi
+    tsc --sourcemap --target es5 "$each"
+    retVal=$?
+  done
+  if [ $keepRunning -eq 0 ]
   then
     exit 0
   fi

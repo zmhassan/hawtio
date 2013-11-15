@@ -1,3 +1,4 @@
+/// <reference path='corePlugin.ts'/>
 // Lets use a NodeSelection interface so we can expose things like the objectName and the MBean's entries
 interface NodeSelection {
   title: string;

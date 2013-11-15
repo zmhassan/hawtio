@@ -1,4 +1,4 @@
-/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='gitPlugin.ts'/>
 
 module Git {
 

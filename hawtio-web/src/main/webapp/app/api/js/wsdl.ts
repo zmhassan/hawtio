@@ -1,3 +1,4 @@
+///<reference path='apiPlugin.ts'/>
 module API {
 
   export function WsdlViewController($scope, $location, jolokia) {

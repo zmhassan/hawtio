@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
   
   export function ProfilesController($scope, $location:ng.ILocationService, workspace:Workspace, jolokia) {

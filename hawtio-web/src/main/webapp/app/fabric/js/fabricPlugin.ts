@@ -1,8 +1,16 @@
 /// <reference path='../../core/js/corePlugin.ts'/>
-/// <reference path='../../git/js/helpers.ts'/>
-/// <reference path='../../wiki/js/wikiPlugin.ts'/>
 /// <reference path='versionSelectorDirective.ts'/>
 /// <reference path='helpers.ts'/>
+/// <reference path='schemaConfigure.ts'/>
+/// <reference path='profileSelectorDirective.ts'/>
+/// <reference path='profileDetailDirective.ts'/>
+/// <reference path='containerAndProfileDirectives.ts'/>
+/// <reference path='profile.ts'/>
+/// <reference path='../../git/js/helpers.ts'/>
+/// <reference path='../../wiki/js/wikiPlugin.ts'/>
+/// <reference path='../../maven/js/mavenPlugin.ts'/>
+/// <reference path='../../log/js/logPlugin.ts'/>
+/// <reference path='../../forms/js/formPlugin.ts'/>
 
 
 module Fabric {

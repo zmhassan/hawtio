@@ -1,3 +1,4 @@
+/// <reference path='apolloPlugin.ts'/>
 module Apollo {
   export function VirtualHostController($scope, $http, $location, localStorage, workspace:Workspace) {
     $scope.virtual_host = {}

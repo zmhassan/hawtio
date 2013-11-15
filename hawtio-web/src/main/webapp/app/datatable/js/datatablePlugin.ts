@@ -1,3 +1,4 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
 module DataTable {
   var pluginName = 'datatable';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'hawtioCore']).

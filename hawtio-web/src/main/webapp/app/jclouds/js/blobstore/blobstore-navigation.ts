@@ -1,3 +1,4 @@
+/// <reference path='../jcloudsPlugin.ts'/>
 module Jclouds {
 
     export function BlobstoreNavigationController($scope, $routeParams, workspace:Workspace) {

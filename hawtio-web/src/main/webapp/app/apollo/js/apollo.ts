@@ -1,3 +1,4 @@
+/// <reference path='apolloPlugin.ts'/>
 module Apollo {
   export function ApolloController($scope, $http, $location, localStorage, workspace:Workspace) {
     var jolokia = workspace.jolokia;

@@ -1,3 +1,4 @@
+/// <reference path='corePlugin.ts'/>
 class TableWidget {
   private ignoreColumnHash = {};
   private flattenColumnHash = {};

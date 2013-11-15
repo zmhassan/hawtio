@@ -1,3 +1,4 @@
+/// <reference path='activemqPlugin.ts'/>
 module ActiveMQ {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

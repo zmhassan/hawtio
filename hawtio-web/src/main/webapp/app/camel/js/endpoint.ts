@@ -1,3 +1,4 @@
+/// <reference path='camelPlugin.ts'/>
 module Camel {
   export function EndpointController($scope, $location, workspace:Workspace, jolokia) {
     Camel.initEndpointChooserScope($scope, workspace, jolokia);

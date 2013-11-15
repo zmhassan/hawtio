@@ -1,3 +1,4 @@
+/// <reference path='fabricPlugin.ts'/>
 module Fabric {
 
   export function PIDController($scope, $routeParams, jolokia, $location) {

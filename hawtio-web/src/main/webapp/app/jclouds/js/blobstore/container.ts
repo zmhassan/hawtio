@@ -1,3 +1,5 @@
+/// <reference path='../jcloudsPlugin.ts'/>
+
 module Jclouds {
 
     export function BlobstoreContainerController($scope, $filter:ng.IFilterService, workspace:Workspace, $routeParams) {

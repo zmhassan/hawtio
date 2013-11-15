@@ -1,4 +1,5 @@
 /// <reference path='uiPlugin.ts'/>
+/// <reference path='uiPlugin.ts'/>
 
 module UI {
 

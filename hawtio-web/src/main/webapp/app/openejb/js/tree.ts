@@ -1,3 +1,4 @@
+/// <reference path='openejbPlugin.ts'/>
 module OpenEJB {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

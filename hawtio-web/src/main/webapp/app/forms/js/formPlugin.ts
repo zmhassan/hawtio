@@ -1,3 +1,11 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='simpleFormDirective.ts'/>
+/// <reference path='baseDirectives.ts'/>
+/// <reference path='inputTableDirective.ts'/>
+/// <reference path='submitDirective.ts'/>
+/// <reference path='resetDirective.ts'/>
+/// <reference path='mappingRegistry.ts'/>
 module Forms {
 
   export var pluginName = 'hawtio-forms';

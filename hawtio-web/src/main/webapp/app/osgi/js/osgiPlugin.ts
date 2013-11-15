@@ -1,3 +1,9 @@
+/// <reference path='../../core/js/corePlugin.ts'/>
+/// <reference path='osgiData.ts'/>
+/// <reference path='helpers.ts'/>
+/// <reference path='osgiGrapBuilder.ts'/>
+/// <reference path='../../forcegraph/js/forceGraphPlugin.ts'/>
+
 module Osgi {
   var pluginName = 'osgi';
   angular.module(pluginName, ['bootstrap', 'ngResource', 'ngGrid', 'hawtioCore', 'hawtio-ui']).config(($routeProvider) => {

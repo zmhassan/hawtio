@@ -1,3 +1,4 @@
+/// <reference path='formPlugin.ts'/>
 module Forms {
 
   export function FormTestController($scope, workspace) {

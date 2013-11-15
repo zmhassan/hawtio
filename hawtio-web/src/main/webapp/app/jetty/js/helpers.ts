@@ -1,3 +1,4 @@
+/// <reference path='jettyPlugin.ts'/>
 module Jetty {
 
   export function iconClass(state:string) {

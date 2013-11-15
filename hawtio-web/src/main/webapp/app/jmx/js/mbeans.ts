@@ -1,4 +1,4 @@
-
+/// <reference path='jmxPlugin.ts'/>
 module Jmx {
   export function MBeansController($scope, $location: ng.ILocationService, workspace: Workspace) {
 

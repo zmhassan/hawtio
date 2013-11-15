@@ -1,3 +1,4 @@
+/// <reference path='jettyPlugin.ts'/>
 module Jetty {
 
   export function TreeController($scope, $location:ng.ILocationService, workspace:Workspace) {

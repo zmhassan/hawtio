@@ -1,3 +1,4 @@
+/// <reference path='mavenPlugin.ts'/>
 module Maven {
 
   export var log:Logging.Logger = Logger.get("Maven");

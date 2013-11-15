@@ -1,3 +1,5 @@
+/// <reference path='camelPlugin.ts'/>
+
 module Camel {
   export function TraceRouteController($scope, workspace:Workspace, jolokia) {
     $scope.tracing = false;

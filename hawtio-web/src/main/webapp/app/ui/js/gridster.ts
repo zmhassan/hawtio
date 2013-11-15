@@ -1,3 +1,4 @@
+/// <reference path='uiPlugin.ts'/>
 module UI {
 
   export class GridsterDirective {
