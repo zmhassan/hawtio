@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
+import io.hawt.web.tool.GenerateDevFiles;
 import org.apache.aries.blueprint.container.BlueprintContainerImpl;
 import org.apache.camel.CamelException;
 import org.apache.camel.util.CamelContextHelper;
@@ -45,7 +46,8 @@ public class Main {
             if (!contextPath.startsWith("/")) {
                 contextPath = "/" + contextPath;
             }
-            String path = System.getProperty("webapp-outdir", "target/hawtio-web-1.2-SNAPSHOT");
+            String path = getWebAppOutputDir();
+            new GenerateDevFiles(path).run();
             String webXml = path + "/WEB-INF/web.xml";
             require(fileExists(webXml), "No web.xml could be found for $webXml");
 
@@ -170,6 +172,10 @@ public class Main {
         } catch (Throwable e) {
             LOG.error(e.getMessage(), e);
         }
+    }
+
+    public static String getWebAppOutputDir() {
+        return System.getProperty("webapp-outdir", "target/hawtio-web-1.2-SNAPSHOT");
     }
 
     /**
