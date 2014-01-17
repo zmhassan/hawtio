@@ -1,2 +1,2 @@
-declare var _apacheCamelModel: any;
-declare var _jsonSchema: any;
+/** for detecting if we're in chrome apps */
+declare var chrome: any;

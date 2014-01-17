@@ -1,3 +1,4 @@
+var localStorage = null;
 
 Logger.setLevel(Logger.INFO);
 // we'll default to 100 statements I guess...
@@ -5,14 +6,31 @@ Logger.setLevel(Logger.INFO);
 window['LogBuffer'] = 100;
 
 if ('localStorage' in window) {
-  if ('logLevel' in window.localStorage) {
-    var logLevel = JSON.parse(window.localStorage['logLevel']);
+  if (!localStorage) {
+    try {
+      localStorage = window.localStorage;
+    } catch (e) {
+      // ignore
+    }
+  }
+  if (!localStorage) {
+    try {
+      localStorage = chrome.storage.local;
+    } catch (e) {
+      // ignore
+    }
+  }
+  if (!localStorage) {
+    localStorage = {};
+  }
+  if (localStorage && 'logLevel' in  localStorage) {
+    var logLevel = JSON.parse(localStorage['logLevel']);
     // console.log("Using log level: ", logLevel);
     Logger.setLevel(logLevel);
   }
 
-  if ('showLog' in window.localStorage) {
-    var showLog = window.localStorage['showLog'];
+  if (localStorage && 'showLog' in localStorage) {
+    var showLog = localStorage['showLog'];
     // console.log("showLog: ", showLog);
     if (showLog === 'true') {
       var container = document.getElementById("log-panel");
@@ -22,11 +40,13 @@ if ('localStorage' in window) {
     }
   }
 
-  if ('logBuffer' in window.localStorage) {
-    var logBuffer = window.localStorage['logBuffer'];
-    window['LogBuffer'] = parseInt(logBuffer);
-  } else {
-    window.localStorage['logBuffer'] = window['LogBuffer'];
+  if (localStorage) {
+    if ('logBuffer' in localStorage) {
+      var logBuffer = localStorage['logBuffer'];
+      window['LogBuffer'] = parseInt(logBuffer);
+    } else {
+      localStorage['logBuffer'] = window['LogBuffer'];
+    }
   }
 }
 

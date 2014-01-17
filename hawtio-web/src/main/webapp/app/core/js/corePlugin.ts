@@ -93,9 +93,24 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
         constant('layoutFull', 'app/core/html/layoutFull.html').
         service('localStorage',function () {
           // TODO Create correct implementation of windowLocalStorage
-          var storage:WindowLocalStorage = window.localStorage || <any> (function () {
-            return {};
-          })();
+          var storage: any = null;
+          if (!storage) {
+            try {
+              storage = chrome.storage.local
+            } catch (e) {
+              // ignore
+            }
+          }
+          if (!storage) {
+            try {
+              storage = window.localStorage;
+            } catch (e) {
+              // ignore
+            }
+          }
+          if (!storage) {
+            storage = {};
+          }
           return storage;
         }).
 
@@ -167,25 +182,26 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
 
             Core.log.debug("No username set, checking if we have a session");
             // fetch the username if we've already got a session at the server
-            var userUrl = jolokiaUrl.replace("jolokia", "user");
-            $.ajax(userUrl, {
-              type: "GET",
-              success: (response) => {
-                Core.log.debug("Got user response: ", response);
-                // We'll only touch these if they're not set
-                if (response !== '' && response !== null) {
-                  answer.username = response;
-                  if (!('loginDetails' in answer)) {
-                    answer['loginDetails'] = {};
+            if (jolokiaUrl) {
+              var userUrl = jolokiaUrl.replace("jolokia", "user");
+              $.ajax(userUrl, {
+                type: "GET",
+                success: (response) => {
+                  Core.log.debug("Got user response: ", response);
+                  // We'll only touch these if they're not set
+                  if (response !== '' && response !== null) {
+                    answer.username = response;
+                    if (!('loginDetails' in answer)) {
+                      answer['loginDetails'] = {};
+                    }
                   }
+                },
+                error: (xhr, textStatus, error) => {
+                  Core.log.debug("Failed to get session username: ", error);
+                  // silently ignore, we could be using the proxy
                 }
-              },
-              error: (xhr, textStatus, error) => {
-                Core.log.debug("Failed to get session username: ", error);
-                // silently ignore, we could be using the proxy
-              }
-            });
-
+              });
+            }
             return answer;
 
           } else {
@@ -255,17 +271,19 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
                 }
               });
 
-              var loginUrl = jolokiaUrl.replace("jolokia", "auth/login/");
-              $.ajax(loginUrl, {
-                type: "POST",
-                success: (response) => {
-                  userDetails.loginDetails = response;
-                },
-                error: (xhr, textStatus, error) => {
-                  // silently ignore, we could be using the proxy
-                }
-              });
 
+              if (jolokiaUrl) {
+                var loginUrl = jolokiaUrl.replace("jolokia", "auth/login/");
+                $.ajax(loginUrl, {
+                  type: "POST",
+                  success: (response) => {
+                    userDetails.loginDetails = response;
+                  },
+                  error: (xhr, textStatus, error) => {
+                    // silently ignore, we could be using the proxy
+                  }
+                });
+              }
             }
 
             jolokiaParams['ajaxError'] = (xhr, textStatus, error) => {
