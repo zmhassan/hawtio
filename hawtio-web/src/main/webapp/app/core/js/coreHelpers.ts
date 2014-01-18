@@ -1356,8 +1356,8 @@ module Core {
           log.info("opening: " + full);
           chrome.app.window.create(full, {
             'bounds': {
-              'width': 800,
-              'height': 600
+              'width': 1200,
+              'height': 800
             }
           }, (args) => {
             //log.info("Called back: " + args);
