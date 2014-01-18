@@ -11,7 +11,7 @@
   
   "permissions": [
     "http://*/",
-    "webview",
+    "app.window",
     "storage"
   ]
 }

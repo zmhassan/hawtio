@@ -80,16 +80,25 @@ module Core {
       // app is initializing...
       //var flags = {error: initialLoadError, ajaxError: initialLoadError, maxDepth: 2};
       var flags = {ignoreErrors: true, maxDepth: 2};
-      var data = this.jolokia.list(null, onSuccess(null, flags));
 
-      if (data) {
-        this.jolokiaStatus.xhr = null;
+      var onData = (data) => {
+        if (data) {
+          this.jolokiaStatus.xhr = null;
+        }
+        this.populateTree({
+          value: data
+        });
+
+        // we now only reload the tree if the TreeWatcher mbean is present...
+        // Core.register(this.jolokia, this, {type: 'list', maxDepth: 2}, onSuccess(angular.bind(this, this.populateTree), {maxDepth: 2}));
+      };
+
+      var isApp = Core.isChromeApp();
+      var fn = isApp ? onData : null;
+      var data = this.jolokia.list(null, onSuccess(fn, flags));
+      if (!isApp) {
+        onData(data);
       }
-      this.populateTree({
-        value: data
-      });
-      // we now only reload the tree if the TreeWatcher mbean is present...
-      // Core.register(this.jolokia, this, {type: 'list', maxDepth: 2}, onSuccess(angular.bind(this, this.populateTree), {maxDepth: 2}));
     }
 
 

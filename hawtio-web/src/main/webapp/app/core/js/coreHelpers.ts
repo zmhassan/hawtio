@@ -1342,7 +1342,34 @@ module Core {
     }
     if (full) {
       log.info("Full URL is: " + full);
-      window.open(full);
+      if (Core.isChromeApp()) {
+        try {
+          var username = userDetails.username;
+          var password = userDetails.password;
+          full = "index.html" + full;
+          if (username) {
+            full += "&_user=" + username;
+          }
+          if (password) {
+            full += "&_pwd=" + password;
+          }
+          log.info("opening: " + full);
+          chrome.app.window.create(full, {
+            'bounds': {
+              'width': 800,
+              'height': 600
+            }
+          }, (args) => {
+            //log.info("Called back: " + args);
+          });
+        } catch (e) {
+          log.error("failed to create window: " + e, e);
+        }
+      }
+      else {
+        log.info("falling back to good old window!");
+        window.open(full);
+      }
     }
 
   }
@@ -1549,5 +1576,10 @@ module Core {
 
 
 
+  export function isChromeApp() {
+    var answer = (chrome && chrome.app && chrome.app.window) ? true : false;
+    log.info("Is chrome app: " + answer);
+    return answer;
+  }
 
 }

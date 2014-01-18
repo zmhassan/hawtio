@@ -94,7 +94,7 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
         service('localStorage',function () {
           // TODO Create correct implementation of windowLocalStorage
           var storage: any = null;
-          if (!storage) {
+          if (Core.isChromeApp()) {
             try {
               storage = chrome.storage.local
             } catch (e) {
@@ -243,7 +243,8 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
               username = userDetails.userName;
               password = userDetails.password;
 
-            } else {
+            }
+            if (!username && !password) {
               // lets see if they are passed in via request parameter...
               var search = hawtioPluginLoader.parseQueryString();
               username = search["_user"];
@@ -252,6 +253,8 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
               if (angular.isArray(password)) password = password[0];
             }
 
+            var log = Logger.get("Core");
+            log.info("using credentials " + username);
             if (username && password) {
 
               /*
@@ -392,15 +395,14 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
         }]).
 
         // for chrome packaged apps lets enable chrome-extension pages
-        // TODO we should probably only do this if we are in a chrome app
-        config([
+        config(Core.isChromeApp() ? [
           '$compileProvider',
           function ($compileProvider) {
             //$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
             $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
             // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
           }
-        ]).
+        ] : []).
 
 
   run(($rootScope, $routeParams, jolokia, workspace, localStorage, viewRegistry, layoutFull, helpRegistry, pageTitle:Core.PageTitle, branding, toastr, userDetails) => {
