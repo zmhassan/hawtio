@@ -391,8 +391,19 @@ angular.module(Core.pluginName, ['bootstrap', 'ngResource', 'ui', 'ui.bootstrap.
           }
         }]).
 
+        // for chrome packaged apps lets enable chrome-extension pages
+        // TODO we should probably only do this if we are in a chrome app
+        config([
+          '$compileProvider',
+          function ($compileProvider) {
+            //$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+            $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+            // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+          }
+        ]).
 
-        run(($rootScope, $routeParams, jolokia, workspace, localStorage, viewRegistry, layoutFull, helpRegistry, pageTitle:Core.PageTitle, branding, toastr, userDetails) => {
+
+  run(($rootScope, $routeParams, jolokia, workspace, localStorage, viewRegistry, layoutFull, helpRegistry, pageTitle:Core.PageTitle, branding, toastr, userDetails) => {
 
           $.support.cors = true;
 
