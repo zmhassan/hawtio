@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Drop Down</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+var filesSaved=[];
+
+window.onload= initDragDrop;
+
+function deleteFile(position){
+
+filesSaved.splice(position, 1)
+$("#file_saved"+position).remove();
+}
+function initDragDrop(){
+
+var dragenter = function(event){
+	event.stopPropagation();
+	event.preventDefault();
+};
+
+var dragover = function(event){
+	event.stopPropagation();
+	event.preventDefault();
+};
+
+var drop = function(event){
+	event.stopPropagation();
+	event.preventDefault();
+	var dt= event.dataTransfer;
+	var files = dt.files;
+	filehandler(files);
+};
+
+var filehandler = function(files){
+	  console.dir(files);
+	  var metadata="";
+	if(files[0].name.length <10){	
+  	  metadata += files[0].name;
+	  filesSaved.push(files);
+	}else{
+	  metadata += files[0].name.substr(0,10)+"...";
+	}
+	metadata+='<span class="badge">' + files[0].size + ' bytes</span>';
+
+	var progress='<div class="progress" style="width:350px"><div class="progress-bar" data-percentage="100"></div></div>';
+
+	$("#dropZone").append('<div class="well well-sm"'+'id="file_saved'+filesSaved.length+'">'+metadata+'<div class="progress" style="width:300px;float:right;margin: 0 20px;"><div class="progress-bar"  data-percentage="100"></div></div>  <a onclick="deleteFile('+filesSaved.length+');" ><i class="glyphicon glyphicon-remove-circle"></i></a> </div>');
+
+
+setTimeout(function(){
+    $('.progress .progress-bar').each(function() {
+	var that = $(this);
+        var maximum = that.attr("data-percentage");
+	var minimum = 0;
+        var progress = setInterval(function() {
+            if (minimum>=maximum) {
+                clearInterval(progress);
+		$('.progress').remove();  
+          } else {
+                minimum +=1;
+                that.css('width', (minimum)+'%');
+            }
+            that.text("");
+        }, 50);
+    });
+  },100);
+};
+
+
+var dropZone= document.getElementById("dropZone");
+dropZone.addEventListener("dragenter",dragenter,false);
+dropZone.addEventListener("dragover",dragover,false);
+dropZone.addEventListener("drop",drop,false);
+
+};
+</script>
+</head>
+<body>
+<!--<div ng-controller="UI.UITestController2">-->
+<div class="panel panel-default" style="width:600px">
+  <div class="panel-body" ng-model="fileData" style="height:200px" id="dropZone">
+
+
+  </div>
+  <div class="panel-footer" >Drop file above to upload to ActiveMQ
+
+<button type="submit" class="btn">Upload</button>
+
+</div>
+<!--
+</div>
+-->
+</body>
+</html>
